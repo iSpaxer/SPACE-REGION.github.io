@@ -65,6 +65,13 @@
             margin: 0 auto;
         }
 
+        .p {
+            width: 350px;
+            font-size: 25px;
+            color: var(--tg-theme-button-color);;
+            margin: 0 auto;
+        }
+
         button {
             border: 0;
             border-radius: 5px;
@@ -118,9 +125,10 @@
     </div>
 
     <form class="main-form" id="login-form">
-        <input type="text" name="username" id="user_name">
-        <input type="password" name="password" id="password">
+        <input type="text" name="username" id="user_name" placeholder="username">
+        <input type="password" name="password" id="password" placeholder="password">
         <div class="center-button">
+            <div class="p" id="error">Ошибка в поле username</div>
             <button id="login-button">Войти</button>
         </div>
     </form>
