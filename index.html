@@ -65,12 +65,40 @@
             margin: 0 auto;
         }
 
+        button {
+            border: 0;
+            border-radius: 5px;
+            margin-top: 40px;
+            height: 60px;
+            width: 200px;
+            font-size: 20px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 500ms ease;
+
+            /* color: var(--tg-theme-button-text-color); */
+            /* background: var(--tg-theme-button-color); */
+            color: #000;
+            background: yellowgreen;
+            
+        }
+        
+        .center-button {
+            text-align: center;
+        }
+
+        button:hover {
+            background: var(--tg-theme-secondary-bg-color);
+        }
+
         input {
             width: 90%;
             outline: none;
             margin: 10px 5%;
             padding: 15px 10px;
             font-size: 14px;
+            color: var(--tg-theme-button-text-color);
+            background: none;
             border: 2px solid silver;
             border-radius: 5px;
         }
@@ -78,25 +106,7 @@
         input:focus {
             border-color: #db5d5d;
         }
-
-        button {
-            border: 0;
-            border-radius: 5px;
-            margin-top: 50px;
-            height: 60px;
-            width: 200px;
-            font-size: 20px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 500ms ease;
-            color: var(--tg-theme-button-color);
-            background: var(--tg-theme-button-text-color);
-        }
-
-        button:hover {
-            background: var(--tg-theme-secondary-bg-color);
-        }
-
+        
 
     </style>
 </head>
@@ -109,15 +119,14 @@
 
     <form class="main-form" id="login-form">
         <input type="text" name="username" id="user_name">
-        
         <input type="password" name="password" id="password">
-        <br>
-        <!-- <input class="button-bell" type="submit" value="LOGIN"> -->
-        <button id="login-button">Войти</button>
+        <div class="center-button">
+            <button id="login-button">Войти</button>
+        </div>
     </form>
     <div id="error"></div>
 
-    <button id="exit-button">Выйти</button>
+    
 
     <!-- Скрипты -->
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
@@ -126,13 +135,17 @@
         checkName = (username) => {
             if (name.length < 5) {
                 document.getElementById("error").innerText = "Ошибка в поле username";
-            }
+                return false;
+            } 
+            return true;
         }
 
         checkPassword = (password) => {
             if (password.length < 8) {
-                document.getElementById("error").innerText = "Ошибка. Пароль слишком короткий"
+                document.getElementById("error").innerText = "Ошибка. Пароль слишком короткий";
+                return false;
             }
+            return true;
         }
 
         let tg = window.Telegram.WebApp; 
@@ -144,15 +157,13 @@
             document.getElementById("error").innerText = "";
             let username = document.getElementById("user_name").value;
             let password = document.getElementById("password").value;
-            checkName(username);
-            checkPassword(password);
-
-            let data = {
-                username: username,
-                password: password
+            if (checkName(username) && checkPassword(password)) {
+                let data = {
+                    username: username,
+                    password: password
+                }
+                tg.sendData(JSON.stringify(data));
             }
-            tg.sendData(JSON.stringify(data));
-            
         })
 
         exitButton.addEventListener("click", () => {
