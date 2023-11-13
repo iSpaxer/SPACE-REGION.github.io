@@ -89,9 +89,6 @@ button:hover {
 <body>
     <div id="main">
         <h1>Вход в аккаунт</h1>
-    </div>
-
-    <section class="section">
         <form class="main-form" id="login-form">
             <input class="input" type="text" name="username" id="user_name">
             <input class="input" type="password" name="password" id="password">
@@ -99,7 +96,7 @@ button:hover {
             <button id="login-button">Войти</button>
         </form>
         <div id="error"></div>
-    </section>
+    </div>
 
     <button id="exit-button">Выйти</button>
 
@@ -136,7 +133,7 @@ button:hover {
                 password: password
             }
             tg.sendData(JSON.stringify(data));
-            tg.close();
+            
         })
 
         exitButton.addEventListener("click", () => {
