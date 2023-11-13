@@ -66,13 +66,17 @@
         }
 
         .input {
-            width: 430px;
-            font-weight: 900;
-            font-size: 20px;
-            color: #FFFFFF;
+            width: 90%;
+            outline: none;
+            margin: 10px 5%;
+            padding: 15px 10px;
+            font-size: 14px;
+            border: 2px solid silver;
+            border-radius: 5px;
+        }
 
-            background: none;
-            border-bottom: 2px solid #00C2FF;;
+        input:focus {
+            border-color: #db5d5d;
         }
 
         button {
@@ -93,9 +97,7 @@
             background: var(--tg-theme-secondary-bg-color);
         }
 
-        input:focus {
-            border-color: #db5d5d;
-        }
+
     </style>
 </head>
 
@@ -105,8 +107,9 @@
         <h1>Вход в аккаунт</h1>
         <form class="main-form" id="login-form">
             <input class="input" type="text" name="username" id="user_name">
-            <br>
+            
             <input class="input" type="password" name="password" id="password">
+            <br>
             <!-- <input class="button-bell" type="submit" value="LOGIN"> -->
             <button id="login-button">Войти</button>
         </form>
