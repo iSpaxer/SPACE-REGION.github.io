@@ -103,7 +103,7 @@
             outline: none;
             margin: 10px 5%;
             padding: 15px 10px;
-            font-size: 14px;
+            font-size: 20px;
             color: var(--tg-theme-button-text-color);
             background: none;
             border: 2px solid silver;
@@ -127,12 +127,13 @@
     <form class="main-form" id="login-form">
         <input type="text" name="username" id="user_name" placeholder="username">
         <input type="password" name="password" id="password" placeholder="password">
-        <div class="center-button">
-            <div class="p" id="error"></div>
-            <button id="login-button">Войти</button>
-        </div>
     </form>
-    <div id="error"></div>
+    <div class="center-button">
+        <div class="p" id="error"></div>
+        <button id="login-button">Войти</button>
+    </div>
+
+    
 
     
 
@@ -170,13 +171,11 @@
                     username: username,
                     password: password
                 }
-                tg.sendData(JSON.stringify(data));
+                // tg.sendData(JSON.stringify(data));
             }
         })
 
-        exitButton.addEventListener("click", () => {
-            tg.close();
-        }) 
+
 
     </script>
 </body>
