@@ -122,7 +122,7 @@
     </div>
 
     <form class="main-form" id="login-form">
-        <input type="text" name="login" id="user_name" placeholder="username">
+        <input type="text" name="username" id="user_name" placeholder="username">
         <input type="password" name="password" id="password" placeholder="password">
     </form>
     <div class="center-button">
@@ -165,7 +165,7 @@
             let password = document.getElementById("password").value;
             if (checkName(username) && checkPassword(password)) {
                 let data = {
-                    username: username,
+                    login: username,
                     password: password
                 }
                 tg.sendData(JSON.stringify(data));
