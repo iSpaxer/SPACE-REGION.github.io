@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="../../login.css"> <!-- TODO -->
+    <link rel="stylesheet" href="../../login.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&display=swap" rel="stylesheet">
@@ -29,7 +29,7 @@
     <meta name="theme-color" content="#ffffff">
 
     <title>Вход</title>
-    
+
     <style>
         * {
             margin: 0;
@@ -53,6 +53,10 @@
         h1 {
             margin-top: 50px;
             margin-bottom: 10px;
+        }
+
+        .firstH1 {
+            margin-top: 0px;
         }
 
         img {
@@ -88,11 +92,13 @@
         }
         
         .center-button {
+            /* display: inline-block; */
             text-align: center;
         }
 
         button:hover {
-            background: var(--tg-theme-text-color);;
+            color: var(--tg-theme-text-color);
+            background: var(--tg-theme-text-color);
         }
 
         input {
@@ -110,67 +116,139 @@
         input:focus {
             border-color: #db5d5d;
         }
+
+        .save-button {
+            margin-top: 30px;
+            
+        }
         
+        .main-form, .main-form2 {
+            /* background: mediumturquoise; */
+        }
+
+        .main-form2 {
+            margin-top: 60px;
+        }
+
+        .circle {
+            /* display: ; */
+            width: 70px;
+            height: 70px;
+            border-radius: 100%;
+            background: #e6e7e7;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            left: 90%;
+
+            animation-duration: 1s;
+            animation-name: slidein;
+            animation-iteration-count: 2;
+            animation-direction: alternate;
+        }   
+
+        @keyframes slidein {
+            from {
+                top: 100%;
+            }
+
+            to {
+                top: 30%;
+            }
+        }
 
     </style>
 </head>
 
 <body>
+
 <div id="main">
-    <h1>Вход в аккаунт</h1>
+    <h1 class="firstH1">Найстройка цен на сайте</h1>
 </div>
 
-<form class="main-form" id="login-form">
-    <input type="text" name="username" id="user_name" placeholder="username">
-    <input type="password" name="password" id="password" placeholder="password">
-</form>
+
+
+<div class="main-form" id="">
+
+    <div>
+        <div id="main">
+            <h1 class="firstH1">Межевание</h1>
+        </div>
+        <div class="selection">
+            <input class="union" type="text" name="" id="" placeholder="PRICE">
+            <input class="union" type="text" name="" id="" placeholder="DATE">
+
+        </div>
+        <div class="circle" id="tick">
+            <svg width="40px" height="40px" viewBox="0 0 12 12" fill="#00c853">
+                <path d="M10.742 1.907c-.353-.38-.923-.38-1.273 0L4.148 8.66 2.53 7.042c-.353-.38-.923-.38-1.273 0-.35.38-.35 1.002 0 1.381l2.8 3.012c.177.19.412.285.637.285.225 0 .432-.094.637-.285l6.036-6.483c.35-.379.35-1.002 0-1.381z"></path>
+            </svg>
+        </div>
+        <div class="center-button">
+            <button class="save-button">Сохранить</button>
+        </div>
+    </div>
+
+    <div>
+        <div id="main">
+            <h1>Тех.план</h1>
+        </div>
+        <div class="selection">
+            <input class="union" type="text" name="" id="" placeholder="PRICE">
+            <input class="union" type="text" name="" id="" placeholder="DATE">
+        </div>
+        <div class="center-button">
+            <button class="save-button">Сохранить</button>
+        </div>
+    </div>
+
+    <div>
+        <div id="main">
+            <h1>Тех.план</h1>
+        </div>
+        <div class="selection">
+            <input class="union" type="text" name="" id="" placeholder="PRICE">
+            <input class="union" type="text" name="" id="" placeholder="DATE">
+        </div>
+        <div class="center-button">
+            <button class="save-button">Сохранить</button>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- 
 <div class="center-button">
     <div class="p" id="error"></div>
     <button id="login-button">Войти</button>
-</div>
+</div> -->
 
 
 
 
 
 <!-- Скрипты -->
-<script src="https://telegram.org/js/telegram-web-app.js"></script>
-<script src="./js/login.js"></script>
+<!-- <script src="https://telegram.org/js/telegram-web-app.js"></script>
+<script src="./js/login.js"></script> -->
 <script>
-    checkName = (username) => {
-        if (username.length < 5) {
-            document.getElementById("error").innerText = "Ошибка в поле username";
-            return false;
-        }
-        return true;
-    }
-
-    checkPassword = (password) => {
-        if (password.length < 8) {
-            document.getElementById("error").innerText = "Ошибка. Пароль слишком короткий";
-            return false;
-        }
-        return true;
-    }
-
-    let tg = window.Telegram.WebApp;
-    let loginButton = document.getElementById("login-button");
-    let exitButton = document.getElementById("exit-button");
-    // tg.expand();
-
-    loginButton.addEventListener("click", () => {
-        document.getElementById("error").innerText = "";
-        let username = document.getElementById("user_name").value;
-        let password = document.getElementById("password").value;
-        if (checkName(username) && checkPassword(password)) {
-            let data = {
-                login: username,
-                password: password
-            }
-            tg.sendData(JSON.stringify(data));
-        }
-        document.getElementById("error").innerText = tg.initDataUnsafe.user.first_name;
+    let savebut = document.getElementsByClassName("save-button");
+    console.log(savebut)
+    for (let elem of savebut) {
+        elem.addEventListener("click", () => {
+            console.log(elem)
+            let tick = document.getElementById("tick");
+            tick.setAttribute(
+                "style",
+                "display: flex",
+                "animation-iteration-count: 2"
+            );
+            setTimeout(function(){
+                tick.style.display = 'none';
+            }, 1900);
     })
+    }
 
 
 
