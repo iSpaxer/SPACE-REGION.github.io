@@ -169,15 +169,11 @@
         let loginButton = document.getElementById("login-button");
         let exitButton = document.getElementById("exit-button");
         // tg.expand();
-        
-        document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name;
-        console.log(tg.initDataUnsafe.user.first_name);
 
         loginButton.addEventListener("click", () => {
-            document.getElementById("error").innerText = tg.initDataUnsafe.user.first_name;
-
-            let password = document.getElementById("password").value;
+            document.getElementById("error").innerText = "";
             let username = document.getElementById("user_name").value;
+            let password = document.getElementById("password").value;
             if (checkName(username) && checkPassword(password)) {
                 let data = {
                     login: username,
@@ -186,6 +182,8 @@
                 tg.sendData(JSON.stringify(data));
             }
         })
+
+        
 
 
 
