@@ -138,6 +138,16 @@
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script src="./js/login.js"></script>
     <script>
+        // async function getPricelist() {
+        // const response = await fetch('/api/getPricelist', {
+        //     method: 'GET',
+        //     headers: {
+        //     'Content-Type': 'application/json',
+        //     },
+        // })
+        //     return await response.json()
+        // }     
+        
         checkName = (username) => {
             if (username.length < 5) {
                 document.getElementById("error").innerText = "Ошибка в поле username";
@@ -154,14 +164,18 @@
             return true;
         }
 
+
         let tg = window.Telegram.WebApp; 
         let loginButton = document.getElementById("login-button");
         let exitButton = document.getElementById("exit-button");
         // tg.expand();
+        
+        let username = document.getElementById("user_name").value;
+            username = tg.initDataUnsafe.first_name;
 
         loginButton.addEventListener("click", () => {
             document.getElementById("error").innerText = "";
-            let username = document.getElementById("user_name").value;
+
             let password = document.getElementById("password").value;
             if (checkName(username) && checkPassword(password)) {
                 let data = {
