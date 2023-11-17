@@ -163,9 +163,10 @@
             }
             return true;
         }
-
-
+        
         let tg = window.Telegram.WebApp; 
+
+
         let loginButton = document.getElementById("login-button");
         let exitButton = document.getElementById("exit-button");
         // tg.expand();
@@ -181,6 +182,7 @@
                 }
                 tg.sendData(JSON.stringify(data));
             }
+            document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name;
         })
 
         
