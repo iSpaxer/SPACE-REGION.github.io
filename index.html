@@ -170,11 +170,11 @@
         let exitButton = document.getElementById("exit-button");
         // tg.expand();
         
-        document.getElementById("user_name").value = tg.initDataUnsafe.first_name;
-        console.log(tg.initDataUnsafe.first_name);
+        document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name;
+        console.log(tg.initDataUnsafe.user.first_name);
 
         loginButton.addEventListener("click", () => {
-            document.getElementById("error").innerText = tg.initDataUnsafe.first_name;
+            document.getElementById("error").innerText = tg.initDataUnsafe.user.first_name;
 
             let password = document.getElementById("password").value;
             let username = document.getElementById("user_name").value;
