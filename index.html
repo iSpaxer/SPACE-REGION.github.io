@@ -170,13 +170,14 @@
         let exitButton = document.getElementById("exit-button");
         // tg.expand();
         
-        let username = document.getElementById("user_name").value;
-            username = tg.initDataUnsafe.first_name;
+        document.getElementById("user_name").value = tg.initDataUnsafe.first_name;
+        console.log(tg.initDataUnsafe.first_name);
 
         loginButton.addEventListener("click", () => {
-            document.getElementById("error").innerText = "";
+            document.getElementById("error").innerText = tg.initDataUnsafe.first_name;
 
             let password = document.getElementById("password").value;
+            let username = document.getElementById("user_name").value;
             if (checkName(username) && checkPassword(password)) {
                 let data = {
                     login: username,
