@@ -169,6 +169,7 @@
             }
             tg.sendData(JSON.stringify(data));
         }
+        document.getElementById("error").innerText = tg.initDataUnsafe.user.first_name;
     })
 
 
