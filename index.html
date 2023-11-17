@@ -115,80 +115,64 @@
     </style>
 </head>
 
-
 <body>
-    <div id="main">
-        <h1>Вход в аккаунт</h1>
-    </div>
+<div id="main">
+    <h1>Вход в аккаунт</h1>
+</div>
 
-    <form class="main-form" id="login-form">
-        <input type="text" name="username" id="user_name" placeholder="username">
-        <input type="password" name="password" id="password" placeholder="password">
-    </form>
-    <div class="center-button">
-        <div class="p" id="error"></div> 
-        <button id="login-button">Войти</button>
-    </div>
+<form class="main-form" id="login-form">
+    <input type="text" name="username" id="user_name" placeholder="username">
+    <input type="password" name="password" id="password" placeholder="password">
+</form>
+<div class="center-button">
+    <div class="p" id="error"></div>
+    <button id="login-button">Войти</button>
+</div>
 
-    
 
-    
 
-    <!-- Скрипты -->
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <script src="./js/login.js"></script>
-    <script>
-        // async function getPricelist() {
-        // const response = await fetch('/api/getPricelist', {
-        //     method: 'GET',
-        //     headers: {
-        //     'Content-Type': 'application/json',
-        //     },
-        // })
-        //     return await response.json()
-        // }     
-        
-        checkName = (username) => {
-            if (username.length < 5) {
-                document.getElementById("error").innerText = "Ошибка в поле username";
-                return false;
-            } 
-            return true;
+
+
+<!-- Скрипты -->
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<script src="./js/login.js"></script>
+<script>
+    checkName = (username) => {
+        if (username.length < 5) {
+            document.getElementById("error").innerText = "Ошибка в поле username";
+            return false;
         }
+        return true;
+    }
 
-        checkPassword = (password) => {
-            if (password.length < 8) {
-                document.getElementById("error").innerText = "Ошибка. Пароль слишком короткий";
-                return false;
-            }
-            return true;
+    checkPassword = (password) => {
+        if (password.length < 8) {
+            document.getElementById("error").innerText = "Ошибка. Пароль слишком короткий";
+            return false;
         }
-        
-        let tg = window.Telegram.WebApp; 
+        return true;
+    }
 
+    let tg = window.Telegram.WebApp;
+    let loginButton = document.getElementById("login-button");
+    let exitButton = document.getElementById("exit-button");
+    // tg.expand();
 
-        let loginButton = document.getElementById("login-button");
-        let exitButton = document.getElementById("exit-button");
-        // tg.expand();
-
-        loginButton.addEventListener("click", () => {
-            document.getElementById("error").innerText = "";
-            let username = document.getElementById("user_name").value;
-            let password = document.getElementById("password").value;
-            if (checkName(username) && checkPassword(password)) {
-                let data = {
-                    login: username,
-                    password: password
-                }
-                tg.sendData(JSON.stringify(data));
+    loginButton.addEventListener("click", () => {
+        document.getElementById("error").innerText = "";
+        let username = document.getElementById("user_name").value;
+        let password = document.getElementById("password").value;
+        if (checkName(username) && checkPassword(password)) {
+            let data = {
+                login: username,
+                password: password
             }
-            document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name;
-        })
-
-        
-
+            tg.sendData(JSON.stringify(data));
+        }
+    })
 
 
-    </script>
+
+</script>
 </body>
 </html>
