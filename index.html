@@ -57,7 +57,7 @@
 
         .firstH1 {
             margin-top: 0px;
-            color: #db5d5d;
+            color: var(--tg-theme-button-color);
         }
 
         img {
@@ -102,10 +102,6 @@
             transition: transform 0.15s box-shadow 0.15s;
         }
 
-        button: {
-            color: gold;
-            background: gold;
-        }
 
         input {
             width: 90%;
@@ -125,10 +121,13 @@
 
         .save-button {
             margin-top: 30px;
+            width: 300px;
         }
         
         .main-form, .main-form2 {
             /* background: mediumturquoise; */
+
+
         }
 
         .main-form2 {
@@ -136,7 +135,7 @@
         }
 
         .exit-button {
-            width: 30%;
+            width: 40%;
             color: #000;
             background-color: #db5d5d;
         }
@@ -200,9 +199,6 @@
             <input class="union" type="text" name="" id="" placeholder="DATE">
 
         </div>
-        <div class="center-button">
-            <button class="save-button">Сохранить</button>
-        </div>
     </div>
 
     <div>
@@ -212,9 +208,6 @@
         <div class="selection">
             <input class="union" type="text" name="" id="" placeholder="PRICE">
             <input class="union" type="text" name="" id="" placeholder="DATE">
-        </div>
-        <div class="center-button">
-            <button class="save-button">Сохранить</button>
         </div>
     </div>
 
@@ -226,9 +219,6 @@
             <input class="union" type="text" name="" id="" placeholder="PRICE">
             <input class="union" type="text" name="" id="" placeholder="DATE">
         </div>
-        <div class="center-button">
-            <button class="save-button">Сохранить</button>
-        </div>
     </div>
 
     <div>
@@ -238,10 +228,6 @@
         <div class="selection">
             <input class="union" type="text" name="" id="" placeholder="PRICE">
             <input class="union" type="text" name="" id="" placeholder="DATE">
-        </div>
-        <div class="center-button">
-            <button class="save-button">Сохранить</button>
-        </div>
     </div>
 
     <div>
@@ -252,13 +238,14 @@
             <input class="union" type="text" name="" id="" placeholder="PRICE">
             <input class="union" type="text" name="" id="" placeholder="DATE">
         </div>
-        <div class="center-button">
-            <button class="save-button">Сохранить</button>
-        </div>
     </div>
 
     <div class="center-button">
-        <button class="exit-button">Выход</button>
+        <button class="save-button">Сохранить и выйти</button>
+    </div>
+
+    <div class="center-button">
+        <button class="exit-button">Выйти без сохранения</button>
     </div>
 
 </div>
