@@ -58,10 +58,12 @@
         .firstH1 {
             margin-top: 0px;
             color: yellowgreen;
+            font-size: 36px;
+  
         }
 
         .naming {
-            color: var(--tg-theme-button-color);
+            font-weight: 900;
         }
 
         img {
@@ -100,7 +102,7 @@
             text-align: center;
         }
 
-        button:hover {
+        button:focus {
             color: var(--tg-theme-bg-color);
             background: var(--tg-theme-text-color);
             transition: transform 0.15s box-shadow 0.15s;
@@ -121,10 +123,10 @@
 
         input:focus {
             border-color: #db5d5d;
-            .naming {
-                color: var(--tg-theme-text-color);
-            }
+
         }
+
+        
 
         .save-button {
             margin-top: 30px;
@@ -146,6 +148,8 @@
             color: #000;
             background-color: #db5d5d;
         }
+
+        
 
         .exit-button:hover {
             
@@ -204,13 +208,15 @@
         <div class="selection">
             <input class="union" type="text" name="" id="" placeholder="PRICE">
             <input class="union" type="text" name="" id="" placeholder="DATE">
-
+        </div>
+        <div class="center-button">
+            <button class="apply-button">Применить</button>
         </div>
     </div>
 
     <div>
         <div id="main">
-            <h1>Тех.план</h1>
+            <h1 class="naming">Тех.план</h1>
         </div>
         <div class="selection">
             <input class="union" type="text" name="" id="" placeholder="PRICE">
@@ -220,40 +226,47 @@
 
     <div>
         <div id="main">
-            <h1>Акт обследования</h1>
+            <h1 class="naming">Акт обследования</h1>
         </div>
         <div class="selection">
             <input class="union" type="text" name="" id="" placeholder="PRICE">
             <input class="union" type="text" name="" id="" placeholder="DATE">
+        </div>
+        <div class="center-button">
+            <button class="apply-button">Применить</button>
         </div>
     </div>
 
     <div>
         <div id="main">
-            <h1>Вынос границ</h1>
+            <h1 class="naming">Вынос границ</h1>
         </div>
         <div class="selection">
             <input class="union" type="text" name="" id="" placeholder="PRICE">
             <input class="union" type="text" name="" id="" placeholder="DATE">
+        </div>
+        <div class="center-button">
+            <button class="apply-button">Применить</button>
+        </div>
     </div>
 
     <div>
         <div id="main">
-            <h1>Схемы расположения</h1>
+            <h1 class="naming">Схемы расположения</h1>
         </div>
         <div class="selection">
             <input class="union" type="text" name="" id="" placeholder="PRICE">
             <input class="union" type="text" name="" id="" placeholder="DATE">
+        </div>
+        <div class="center-button">
+            <button class="apply-button">Применить</button>
         </div>
     </div>
 
     <div class="center-button">
-        <button class="save-button">Сохранить и выйти</button>
+        <button class="exit-button">Сохранить и выйти</button>
     </div>
-
-    <div class="center-button">
-        <button class="exit-button">Выйти без сохранения</button>
-    </div>
+    
 
 </div>
 
@@ -271,9 +284,9 @@
 <!-- Скрипты -->
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <script>
-    let savebut = document.getElementsByClassName("save-button");
-    console.log(savebut)
-    for (let elem of savebut) {
+    let applybut = document.getElementsByClassName("apply-button");
+    console.log(applybut)
+    for (let elem of applybut) {
         elem.addEventListener("click", () => {
             console.log(elem)
             let tick = document.getElementById("tick");
