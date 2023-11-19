@@ -343,16 +343,19 @@
     let saveExit = document.getElementById("exit");
     saveExit.addEventListener("click", () => {
         let data = {
-            pricelist: new Map(),
-            datelist: new Map()
+            pricelist: [
+                price = [],
+                date = []
+            ]
         }
         let naming = ['mezhevaniye', 'pricelist', 'akt_inspection', 'takeaway_borders', 'scheme_location'];
-        let count = 0;
         for (let i = 0; i < allInputs.length; i = i + 2) {
-            data.pricelist.set(naming[count], allInputs[i+1].value);
-            data.datelist.set(naming[count], allInputs[i].value);
-            count++;
+            // data.pricelist.set(naming[count], allInputs[i+1].value);
+            // data.datelist.set(naming[count], allInputs[i].value);
+            data.pricelist[0].push(allInputs[i+1].value);
+            data.pricelist[1].push(allInputs[i].value);
         }
+        console.log(data);
         tg.sendData(JSON.stringify(data));
     })
 
