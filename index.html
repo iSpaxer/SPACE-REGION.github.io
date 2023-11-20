@@ -339,23 +339,44 @@
         })
     }
 
+    class priceListDTO {
+        mezhevaniye;
+    }
+
     let tg = window.Telegram.WebApp;
     let saveExit = document.getElementById("exit");
     saveExit.addEventListener("click", () => {
         let data = {
             pricelist: [
-                price = [],
-                date = []
+                price = {},
+                date= {}
             ]
         }
         let naming = ['mezhevaniye', 'pricelist', 'akt_inspection', 'takeaway_borders', 'scheme_location'];
-        for (let i = 0; i < allInputs.length; i = i + 2) {
-            // data.pricelist.set(naming[count], allInputs[i+1].value);
-            // data.datelist.set(naming[count], allInputs[i].value);
-            data.pricelist[0].push(allInputs[i+1].value);
-            data.pricelist[1].push(allInputs[i].value);
-        }
-        console.log(data);
+
+        data.pricelist[0].mezhevaniye = allInputs[0].value;
+        data.pricelist[1].mezhevaniye = allInputs[1].value;
+        
+        data.pricelist[0].pricelist = allInputs[2].value;
+        data.pricelist[1].pricelist = allInputs[3].value;
+
+        data.pricelist[0].akt_inspection = allInputs[4].value;
+        data.pricelist[1].akt_inspection = allInputs[5].value;
+        
+        data.pricelist[0].takeaway_borders = allInputs[6].value;
+        data.pricelist[1].takeaway_borders = allInputs[7].value;
+
+        data.pricelist[0].scheme_location = allInputs[8].value;
+        data.pricelist[1].scheme_location = allInputs[9].value;
+
+        // for (let i = 0; i < allInputs.length; i = i + 2) {
+        //     // data.pricelist.set(naming[count], allInputs[i+1].value);
+        //     // data.datelist.set(naming[count], allInputs[i].value);
+        //     data.pricelist[0].push(allInputs[i+1].value);
+        //     data.pricelist[0].
+        //     data.pricelist[1].push(allInputs[i].value);
+        // }
+        // console.log(data);
         tg.sendData(JSON.stringify(data));
     })
 
