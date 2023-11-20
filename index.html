@@ -346,12 +346,11 @@
     let tg = window.Telegram.WebApp;
     let saveExit = document.getElementById("exit");
     saveExit.addEventListener("click", () => {
-        let data = {
-            pricelist: [
+        let data = [
                 price = {},
-                date= {}
+                date = {}
             ]
-        }
+        
         let naming = ['mezhevaniye', 'pricelist', 'akt_inspection', 'takeaway_borders', 'scheme_location'];
 
         data.pricelist[0].mezhevaniye = allInputs[0].value;
