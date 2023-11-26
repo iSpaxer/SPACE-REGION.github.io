@@ -248,6 +248,7 @@
                 <ul class="uninput">111</ul>
                 <ul class="uninput">111</ul>
                 <ul class="uninput">111</ul>
+                <ul class="uninput-2"></ul>
             </div>
         </div>
         <div id="main">
@@ -437,7 +438,8 @@
 
         createClients(data);
         displayPagination(data, currentPage, ".pagination");
-
+        let ul = document.querySelector('.uninput-2');
+        u.innerText = document.location.search;
     } 
 
     main();
