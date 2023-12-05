@@ -247,8 +247,7 @@
         <div id="content">
             <!-- <ul class="uninput">111</ul>
             <ul class="uninput">111</ul>
-            <ul class="uninput">111</ul>
-            <ul class="uninput-2"></ul> -->
+            <ul class="uninput">111</ul> -->
         </div>
     </div>
     <div id="main">
@@ -261,6 +260,7 @@
     <div class="center-button">
         <button class="exit-button" id="exit">Сохранить и выйти</button>
     </div>
+    <ul class="uninput-2"></ul>
 </div>
 
 
@@ -269,11 +269,11 @@
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <script>
     // TODO get data from TgBot
-    async function getClientsEmpty() {
-        let token = "eyJjdHkiOiLQkNC70LXQutGB0LDQvdC00YAiLCJlbmMiOiJBMTI4R0NNIiwiYWxnIjoiZGlyIn0..xXo3EU1PjyyDUq1O.u9ECUbT2ktJWy19LhGQwBSq6RIGoynvAYuIIblRkutqm5n2f7tJ4__EpkUG4mwwauirtCJs.0F6kByrzWq57-9MCm88Yug";
-        let tokenExpired = "eyJjdHkiOiLQkNC70LXQutGB0LDQvdC00YAiLCJlbmMiOiJBMTI4R0NNIiwiYWxnIjoiZGlyIn0..y6p1yGO9b817c9zo.8krH2ySdrlNK2zVcrEU4Xu0CAEhRl_c1EGIiwoKnczk8ZGf104xCRutVG6-w0zINxCn6lKk.djujtxmV_iTgQbDf6a_twA";
-        let str = 'Bearer ' + token;
-        console.log(str)
+    async function getClientsEmpty(tjwt) {
+        // let token = "eyJjdHkiOiLQkNC70LXQutGB0LDQvdC00YAiLCJlbmMiOiJBMTI4R0NNIiwiYWxnIjoiZGlyIn0..xXo3EU1PjyyDUq1O.u9ECUbT2ktJWy19LhGQwBSq6RIGoynvAYuIIblRkutqm5n2f7tJ4__EpkUG4mwwauirtCJs.0F6kByrzWq57-9MCm88Yug";
+        // let tokenExpired = "eyJjdHkiOiLQkNC70LXQutGB0LDQvdC00YAiLCJlbmMiOiJBMTI4R0NNIiwiYWxnIjoiZGlyIn0..y6p1yGO9b817c9zo.8krH2ySdrlNK2zVcrEU4Xu0CAEhRl_c1EGIiwoKnczk8ZGf104xCRutVG6-w0zINxCn6lKk.djujtxmV_iTgQbDf6a_twA";
+        let str = 'Bearer ' + tjwt;
+        // console.log(str)
         const response = await fetch('http://localhost:8081/jwt/getClients', {
             method: 'GET',
             headers: {
@@ -283,12 +283,13 @@
         return await response.json()
     }
 
-    async function getClients(page) {
+    async function getClients(tjwt, page) {
+        let str = 'Bearer ' + tjwt;
         const response = await fetch('http://localhost:8081/jwt/getClients?page='+page, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer eyJjdHkiOiLQkNC70LXQutGB0LDQvdC00YAiLCJlbmMiOiJBMTI4R0NNIiwiYWxnIjoiZGlyIn0..xXo3EU1PjyyDUq1O.u9ECUbT2ktJWy19LhGQwBSq6RIGoynvAYuIIblRkutqm5n2f7tJ4__EpkUG4mwwauirtCJs.0F6kByrzWq57-9MCm88Yug',
+            'Authorization': str
         },
         })
         return await response.json()
@@ -335,9 +336,13 @@
     }
 
     async function main() {
-        let data = await getClientsEmpty();
+        let tjwt = document.location.search.replace("?tjwt=", "")
+        // console.log(tjwt);
+        let data = await getClientsEmpty(tjwt);
+        if (data.content == undefined || data.content == null) {
+            return
+        }
         clearWindow();
-        console.log(data);
         let currentPage = 1;
 
         function createClients(data) {
@@ -427,7 +432,7 @@
                 let numPage = currentPage - 1;
 
                 data = await getClients(numPage);
-                console.log(data)
+                // console.log(data)
                 clearWindow();
                 createClients(data);
                 displayPagination(data, currentPage, ".pagination");
@@ -448,9 +453,10 @@
     }
 
     main();
-    let ul = document.querySelector('.uninput-2');
-        ul.innerText = document.location.search;
-    console.log(document.location.search);
+    // let ul = document.querySelector('.uninput-2');
+    //     ul.innerText = document.location.search;
+
+    // console.log(document.location.search);
 
 
 </script>
