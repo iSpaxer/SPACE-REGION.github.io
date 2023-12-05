@@ -431,7 +431,7 @@
                 currentPage = page;
                 let numPage = currentPage - 1;
 
-                data = await getClients(numPage);
+                data = await getClients(tjwt, numPage);
                 // console.log(data)
                 clearWindow();
                 createClients(data);
