@@ -274,7 +274,7 @@
         let tokenExpired = "eyJjdHkiOiLQkNC70LXQutGB0LDQvdC00YAiLCJlbmMiOiJBMTI4R0NNIiwiYWxnIjoiZGlyIn0..y6p1yGO9b817c9zo.8krH2ySdrlNK2zVcrEU4Xu0CAEhRl_c1EGIiwoKnczk8ZGf104xCRutVG6-w0zINxCn6lKk.djujtxmV_iTgQbDf6a_twA";
         let str = 'Bearer ' + token;
         console.log(str)
-        const response = await fetch('http://localhost:8081/jwt/getClients', {
+        const response = await fetch('http://192.168.0.103:8081/jwt/getClients', {
             method: 'GET',
             headers: {
                 'Authorization': str
@@ -284,7 +284,7 @@
     }
 
     async function getClients(page) {
-        const response = await fetch('http://localhost:8081/jwt/getClients?page='+page, {
+        const response = await fetch('http://192.168.0.103:8081/jwt/getClients?page='+page, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
