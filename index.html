@@ -262,36 +262,36 @@
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <script>
     // TODO get pricelist from Site
-    // async function getPricelist() {
-    //     const response = await fetch('http://localhost:8080/api/getPricelist', {
-    //     method: 'GET',
-    //     headers: {
-    //         'Content-Type': 'application/json',
-    //     },
-    //     })
-    //     return await response.json()
-    // }
+    async function getPricelist() {
+        const response = await fetch('http://localhost:8080/api/getPricelist', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        })
+        return await response.json()
+    }
 
     let allInputs = document.getElementsByClassName("union");
-    // getPricelist().then((pricelistAll) => {
-    //     let pricelist = pricelistAll[0];
-    //     let dateList  = pricelistAll[1];
+    getPricelist().then((pricelistAll) => {
+        let pricelist = pricelistAll[0];
+        let dateList  = pricelistAll[1];
 
-    //     allInputs[0].value = pricelist.mezhevaniye;
-    //     allInputs[1].value = dateList.mezhevaniye;
+        allInputs[0].value = pricelist.mezhevaniye;
+        allInputs[1].value = dateList.mezhevaniye;
 
-    //     allInputs[2].value = pricelist.tech_plan;
-    //     allInputs[3].value = dateList.tech_plan;
+        allInputs[2].value = pricelist.tech_plan;
+        allInputs[3].value = dateList.tech_plan;
 
-    //     allInputs[4].value = pricelist.akt_inspection;
-    //     allInputs[5].value = dateList.akt_inspection;
+        allInputs[4].value = pricelist.akt_inspection;
+        allInputs[5].value = dateList.akt_inspection;
 
-    //     allInputs[6].value = pricelist.takeaway_borders;
-    //     allInputs[7].value = dateList.takeaway_borders;
+        allInputs[6].value = pricelist.takeaway_borders;
+        allInputs[7].value = dateList.takeaway_borders;
 
-    //     allInputs[8].value = pricelist.scheme_location;
-    //     allInputs[9].value = dateList.scheme_location;
-    // });
+        allInputs[8].value = pricelist.scheme_location;
+        allInputs[9].value = dateList.scheme_location;
+    });
 
 
     let applybut = document.getElementsByClassName("apply-button");
