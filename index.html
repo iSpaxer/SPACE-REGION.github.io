@@ -242,7 +242,7 @@
     <div class="clients">
         <div class="clientId">
             <!-- <img src="id.png" alt="ID" width="38" height="38"> -->
-            <h2>Время жизни токена истекло, пожалуйста перезайдите!</h2>
+            <h2>Время жизни токена истекло, получите новую ссылку с новым токеном командой /getClients</h2>
         </div>
         <div id="content">
             <!-- <ul class="uninput">111</ul>
@@ -432,6 +432,13 @@
                 let numPage = currentPage - 1;
 
                 data = await getClients(tjwt, numPage);
+                if (data.content == undefined || data.content == null) {
+                    clearWindow();
+                    const divClient = document.querySelector(".clients");
+                    const h2 = document.createElement('h2');
+                        h2.innerText = "Время жизни токена истекло, получите новую ссылку с новым токеном командой /getClients";
+                    divClient.appendChild(h2);
+                }
                 // console.log(data)
                 clearWindow();
                 createClients(data);
