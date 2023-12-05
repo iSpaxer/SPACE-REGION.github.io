@@ -56,16 +56,10 @@
             margin-bottom: 10px;
         }
 
-        h2 {
-            text-align: center;
-            font-size: 30px;
-            margin: 10px 5px;
-        }
-
         .firstH1 {
-            /* margin-top: 0px; */
+            margin-top: 0px;
             color: yellowgreen;
-            font-size: 46px;
+            font-size: 36px;
 
         }
 
@@ -73,11 +67,9 @@
             font-weight: 900;
         }
 
-        .clientId {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
+        img {
+            width: 70px;
+            margin: 30px auto;
         }
 
         p {
@@ -117,12 +109,7 @@
             transition: transform 0.15s box-shadow 0.15s;
         }
 
-        .clientId {
-            margin-top: 50px;
-            margin-bottom: 10px;
-        }
-
-        input, .uninput {
+        input {
             width: 90%;
             outline: none;
             margin: 10px 5%;
@@ -134,43 +121,8 @@
             border-radius: 5px;
         }
 
-        .uninput {
-            margin: -3px 5%;
-            padding: 15px 10px;
-            font-size: 24px;
-        }
-
-        input:focus, .uninput:hover {
+        input:focus {
             border-color: #db5d5d;
-        }
-
-        .pagination, .pagination-repeat {
-            display: flex;
-            justify-content: center;
-        }
-
-        .pagination__list {
-            display: flex;
-            list-style-type: none;
-            border-color: #db5d5d;
-            border: 2px solid rgb(212, 211, 211);
-            border-radius: 5px;
-            margin-top: 10px;
-            margin-bottom: -20px;
-        }
-
-        .pagination__item {
-            padding: 8px;
-            margin: 8px;
-            font-size: 30px;
-
-            font-weight: 700;
-            cursor: pointer;
-        }
-
-        .pagination__item--active {
-            font-weight: 1000;
-            color: yellowgreen;
         }
 
         .save-button {
@@ -226,41 +178,82 @@
 <body>
 
 <div id="main">
-    <h1 class="firstH1">Все обращения</h1>
+    <h1 class="firstH1">Найстройка цен на сайте</h1>
 </div>
 
-<div class="main-section" id="main-section">
+<div class="main-form" id="">
     <div class="circle" id="tick">
         <svg width="40px" height="40px" viewBox="0 0 12 12" fill="#00c853">
             <path d="M10.742 1.907c-.353-.38-.923-.38-1.273 0L4.148 8.66 2.53 7.042c-.353-.38-.923-.38-1.273 0-.35.38-.35 1.002 0 1.381l2.8 3.012c.177.19.412.285.637.285.225 0 .432-.094.637-.285l6.036-6.483c.35-.379.35-1.002 0-1.381z"></path>
         </svg>
     </div>
-    <div id="main">
-        <div class="pagination"></div>
-    </div>
-
-    <div class="clients">
-        <div class="clientId">
-            <!-- <img src="id.png" alt="ID" width="38" height="38"> -->
-            <h2>Время жизни токена истекло, получите новую ссылку с новым токеном командой /getClients</h2>
+    <div>
+        <div id="main">
+            <h1 class="naming">Межевание</h1>
         </div>
-        <div id="content">
-            <!-- <ul class="uninput">111</ul>
-            <ul class="uninput">111</ul>
-            <ul class="uninput">111</ul> -->
+        <div class="selection">
+            <input class="union" type="text" name="" id="" placeholder="PRICE">
+            <input class="union" type="text" name="" id="" placeholder="DATE">
+        </div>
+        <div class="center-button">
+            <button class="apply-button">Применить</button>
         </div>
     </div>
-    <div id="main">
-        <div class="pagination"></div>
+
+    <div>
+        <div id="main">
+            <h1 class="naming">Тех.план</h1>
+        </div>
+        <div class="selection">
+            <input class="union" type="text" name="" id="" placeholder="PRICE">
+            <input class="union" type="text" name="" id="" placeholder="DATE">
+        </div>
+        <div class="center-button">
+            <button class="apply-button">Применить</button>
+        </div>
     </div>
 
-    <div class="center-button">
-        <button class="apply-button">Применить</button>
+    <div>
+        <div id="main">
+            <h1 class="naming">Акт обследования</h1>
+        </div>
+        <div class="selection">
+            <input class="union" type="text" name="" id="" placeholder="PRICE">
+            <input class="union" type="text" name="" id="" placeholder="DATE">
+        </div>
+        <div class="center-button">
+            <button class="apply-button">Применить</button>
+        </div>
+    </div>
+
+    <div>
+        <div id="main">
+            <h1 class="naming">Схемы расположения</h1>
+        </div>
+        <div class="selection">
+            <input class="union" type="text" name="" id="" placeholder="PRICE">
+            <input class="union" type="text" name="" id="" placeholder="DATE">
+        </div>
+        <div class="center-button">
+            <button class="apply-button">Применить</button>
+        </div>
+    </div>
+
+    <div>
+        <div id="main">
+            <h1 class="naming">Вынос границ</h1>
+        </div>
+        <div class="selection">
+            <input class="union" type="text" name="" id="" placeholder="PRICE">
+            <input class="union" type="text" name="" id="" placeholder="DATE">
+        </div>
+        <div class="center-button">
+            <button class="apply-button">Применить</button>
+        </div>
     </div>
     <div class="center-button">
         <button class="exit-button" id="exit">Сохранить и выйти</button>
     </div>
-    <ul class="uninput-2"></ul>
 </div>
 
 
@@ -268,202 +261,79 @@
 <!-- Скрипты -->
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <script>
-    // TODO get data from TgBot
-    async function getClientsEmpty(tjwt) {
-        // let token = "eyJjdHkiOiLQkNC70LXQutGB0LDQvdC00YAiLCJlbmMiOiJBMTI4R0NNIiwiYWxnIjoiZGlyIn0..xXo3EU1PjyyDUq1O.u9ECUbT2ktJWy19LhGQwBSq6RIGoynvAYuIIblRkutqm5n2f7tJ4__EpkUG4mwwauirtCJs.0F6kByrzWq57-9MCm88Yug";
-        // let tokenExpired = "eyJjdHkiOiLQkNC70LXQutGB0LDQvdC00YAiLCJlbmMiOiJBMTI4R0NNIiwiYWxnIjoiZGlyIn0..y6p1yGO9b817c9zo.8krH2ySdrlNK2zVcrEU4Xu0CAEhRl_c1EGIiwoKnczk8ZGf104xCRutVG6-w0zINxCn6lKk.djujtxmV_iTgQbDf6a_twA";
-        let str = 'Bearer ' + tjwt;
-        // console.log(str)
-        const response = await fetch('http://localhost:8081/jwt/getClients', {
-            method: 'GET',
-            headers: {
-                'Authorization': str
-            },
+    // TODO get pricelist from Site
+    // async function getPricelist() {
+    //     const response = await fetch('http://localhost:8080/api/getPricelist', {
+    //     method: 'GET',
+    //     headers: {
+    //         'Content-Type': 'application/json',
+    //     },
+    //     })
+    //     return await response.json()
+    // }
+
+    let allInputs = document.getElementsByClassName("union");
+    // getPricelist().then((pricelistAll) => {
+    //     let pricelist = pricelistAll[0];
+    //     let dateList  = pricelistAll[1];
+
+    //     allInputs[0].value = pricelist.mezhevaniye;
+    //     allInputs[1].value = dateList.mezhevaniye;
+
+    //     allInputs[2].value = pricelist.tech_plan;
+    //     allInputs[3].value = dateList.tech_plan;
+
+    //     allInputs[4].value = pricelist.akt_inspection;
+    //     allInputs[5].value = dateList.akt_inspection;
+
+    //     allInputs[6].value = pricelist.takeaway_borders;
+    //     allInputs[7].value = dateList.takeaway_borders;
+
+    //     allInputs[8].value = pricelist.scheme_location;
+    //     allInputs[9].value = dateList.scheme_location;
+    // });
+
+
+    let applybut = document.getElementsByClassName("apply-button");
+    for (let elem of applybut) {
+        elem.addEventListener("click", () => {
+            let tick = document.getElementById("tick");
+            tick.setAttribute(
+                "style",
+                "display: flex",
+                "animation-iteration-count: 2"
+            );
+            setTimeout(function(){
+                tick.style.display = 'none';
+            }, 1900);
         })
-        return await response.json()
     }
 
-    async function getClients(tjwt, page) {
-        let str = 'Bearer ' + tjwt;
-        const response = await fetch('http://localhost:8081/jwt/getClients?page='+page, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': str
-        },
-        })
-        return await response.json()
-    }
+    let tg = window.Telegram.WebApp;
+    let saveExit = document.getElementById("exit");
+    saveExit.addEventListener("click", () => {
+        let data = [
+                price = {},
+                date = {}
+            ]
 
-    class Client { // класс нового обращения
+        data[1].mezhevaniye = allInputs[0].value;
+        data[0].mezhevaniye = allInputs[1].value;
 
-        constructor(client) { //конструктор для такблицы с новыми обращениями
-            this.clientList = [client.id, client.engName, client.name, client.phone, client.createdData];
-        }
+        data[1].tech_plan = allInputs[2].value;
+        data[0].tech_plan = allInputs[3].value;
 
-        create() { //функция создания html разметки
-            const divClient = document.querySelector(".clients");
+        data[1].akt_inspection = allInputs[4].value;
+        data[0].akt_inspection = allInputs[5].value;
 
-            const divId = document.createElement('div');
-                divId.classList.add('clientId');
-            const img = document.createElement('img');
-                img.src = '../images/id.png';
-                img.width = 38;
-                img.height = 38;
-                img.alt = 'ID';
-            const h2 = document.createElement('h2');
-                h2.innerText = this.clientList[0];
-            divId.appendChild(img);
-            divId.appendChild(h2);
+        data[1].scheme_location = allInputs[8].value;
+        data[0].scheme_location = allInputs[9].value;
 
-            const divContent = document.createElement('div');
-                divClient.classList.add('content');
-            let emojiContent = ['👷', '👤', '📞', '🕒'];
-            if (this.clientList[1] == null) {
-                this.clientList[1] = " Заказчик ещё не обработан!";
-                emojiContent[0] = '⛔️';
-            }
-            for (let i = 1; i < 5; i++) {
-                const ul = document.createElement('ul');
-                    ul.classList.add('uninput');
-                    ul.innerText = emojiContent[i-1] + ' ' + this.clientList[i];
-                divContent.appendChild(ul);
-            }
+        data[1].takeaway_borders = allInputs[6].value;
+        data[0].takeaway_borders = allInputs[7].value;
 
-            divClient.appendChild(divId);
-            divClient.appendChild(divContent);
-        }
-    }
-
-    async function main() {
-        let tjwt = document.location.search.replace("?tjwt=", "")
-        // console.log(tjwt);
-        let data = await getClientsEmpty(tjwt);
-        if (data.content == undefined || data.content == null) {
-            return
-        }
-        clearWindow();
-        let currentPage = 1;
-
-        function createClients(data) {
-            const content = data.content;
-            content.forEach(client => {
-                let newClient = new Client(client);
-                newClient.create();
-            });
-        }
-
-        function displayPagination(data, curPage, cssValue) {
-            const paginationElAll = document.querySelectorAll(cssValue);
-            paginationElAll.forEach((paginationEl) => {
-                paginationEl.innerHTML = "";
-                const pagesCount = data.totalPages;
-
-                const ulEl = document.createElement("ul");
-                ulEl.classList.add('pagination__list');
-
-                if (pagesCount <= 7) {
-                    for (let i = 0; i < pagesCount; i++) {
-                        const liEl = displayPaginationBtn(i + 1, i+1);
-                        ulEl.appendChild(liEl);
-                    }
-                    paginationEl.appendChild(ulEl);
-                }
-                // 1! 2! 3! 4! 5 6 7 ... 8
-                else if (curPage <= 4 && pagesCount >= 8) {
-                    for (let i = 0; i < 7; i++) {
-                        const liEl = displayPaginationBtn(i + 1, i+1);
-                        ulEl.appendChild(liEl);
-                    }
-                    let liEl = displayPaginationBtn(7, '...');
-                    ulEl.appendChild(liEl);
-
-                    let liElend = displayPaginationBtn(pagesCount, pagesCount);
-                    ulEl.appendChild(liElend);
-
-                    paginationEl.appendChild(ulEl);
-                }
-                // 1 ... 3 4 5! 6 7 ... 10
-                // 1 ... 4 5 6! 7 8 ... 10
-                else if (curPage >= 5 && curPage <= pagesCount-4) {
-                    let liElfirst = displayPaginationBtn(1, 1);
-                    ulEl.appendChild(liElfirst);
-
-                    let liElAfter = displayPaginationBtn(curPage-3, "...");
-                    ulEl.appendChild(liElAfter);
-
-                    for (let i = curPage-3; i < curPage+2; i++) {
-                        const liEl = displayPaginationBtn(i+1, i+1);
-                        ulEl.appendChild(liEl);
-                    }
-
-                    let liElBefore = displayPaginationBtn(curPage+3, "...");
-                    ulEl.appendChild(liElBefore);
-
-                    let liElend = displayPaginationBtn(pagesCount, pagesCount);
-                    ulEl.appendChild(liElend);
-                    paginationEl.appendChild(ulEl);
-                }
-                // 1 ...5 6 7! 8! 9! 10!
-                else if (curPage >= pagesCount-3) {
-                    let liElfirst = displayPaginationBtn(1, 1);
-                    ulEl.appendChild(liElfirst);
-
-                    let liElAfter = displayPaginationBtn(curPage-3, "...");
-                    ulEl.appendChild(liElAfter);
-
-                    for (let i = pagesCount-3-2-1; i < pagesCount; i++) {
-                        const liEl = displayPaginationBtn(i + 1, i+1);
-                        ulEl.appendChild(liEl);
-                    }
-                    paginationEl.appendChild(ulEl);
-                }
-            })
-        } //.pagination
-        function displayPaginationBtn(page, text) {
-            const liEl = document.createElement("li");
-            liEl.classList.add('pagination__item');
-            liEl.innerText = text;
-
-            if (currentPage == page) liEl.classList.add('pagination__item--active');
-
-            liEl.addEventListener('click', async () => {
-                currentPage = page;
-                let numPage = currentPage - 1;
-
-                data = await getClients(tjwt, numPage);
-                if (data.content == undefined || data.content == null) {
-                    clearWindow();
-                    const divClient = document.querySelector(".clients");
-                    const h2 = document.createElement('h2');
-                        h2.innerText = "Время жизни токена истекло, получите новую ссылку с новым токеном командой /getClients";
-                    divClient.appendChild(h2);
-                }
-                // console.log(data)
-                clearWindow();
-                createClients(data);
-                displayPagination(data, currentPage, ".pagination");
-                window.scrollTo(0, 0);
-
-            })
-
-            return liEl;
-        }
-        function clearWindow() {
-            const divClient = document.querySelector(".clients");
-                divClient.innerHTML = "";
-        }
-
-        createClients(data);
-        displayPagination(data, currentPage, ".pagination");
-
-    }
-
-    main();
-    // let ul = document.querySelector('.uninput-2');
-    //     ul.innerText = document.location.search;
-
-    // console.log(document.location.search);
+        tg.sendData(JSON.stringify(data));
+    })
 
 
 </script>
